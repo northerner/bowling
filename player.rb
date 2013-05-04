@@ -1,8 +1,8 @@
-
-
 class Player
 
   attr_accessor :current_frame
+  attr_accessor :frames
+
   def score
     @current_score = 0
     frames.each do |frame| 
@@ -12,7 +12,14 @@ class Player
   end
   
   def new_roll(score)
-    @current_frame.new_roll score
+   if (@current_frame.new_roll score) == :next
+     @current_frame = next_frame 
+   end
+  end
+  
+  private
+  def next_frame
+    @frames[@frames.find_index(@current_frame) + 1]
   end
 
 end

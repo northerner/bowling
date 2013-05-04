@@ -14,4 +14,13 @@ describe Player do
     test_player.current_frame = test_frame
     test_player.new_roll(7)
   end
+  it 'updates current_frame to point to the next frame when frame new_roll returns next symbol' do
+    test_player = Player.new
+    initial_frame = double('frame', :new_roll => :next)
+    new_frame = double('frame')
+    test_player.frames = [initial_frame, new_frame]
+    test_player.current_frame = initial_frame
+    test_player.new_roll(7)
+    test_player.current_frame.should == new_frame
+  end
 end

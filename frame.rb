@@ -9,6 +9,10 @@ class Frame
   def first_roll
     @first_roll.to_i
   end
+
+  def second_roll
+    @second_roll.to_i
+  end
   
   def new_roll(score)
     if score == 10 && @first_roll.nil?

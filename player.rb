@@ -4,8 +4,10 @@ class Player
 
   attr_accessor :current_frame
   attr_accessor :frames
+  attr_reader :name
   
-  def initialize
+  def initialize(name="MrDefault")
+    @name = name
     @frames = []
     10.times do
       @frames << Frame.new

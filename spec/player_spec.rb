@@ -23,4 +23,7 @@ describe Player do
     test_player.new_roll(7)
     test_player.current_frame.should == new_frame
   end
+  it 'returns a score of 30 after 6 new_rolls of 5' do
+    pending
+  end
 end

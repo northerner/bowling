@@ -15,8 +15,16 @@ class Player
 
   def score
     @current_score = 0
-    frames.each do |frame| 
+    frames.each_with_index do |frame, i| 
       @current_score += frame.score
+      if frame.score == 10
+        case frame.strike_or_spare
+          when :strike 
+            @current_score += @frames[i + 1].score
+          when :spare 
+            @current_score += @frames[i + 1].first_roll
+        end
+      end
     end
     @current_score
   end

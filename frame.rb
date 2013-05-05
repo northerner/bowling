@@ -1,6 +1,7 @@
 class Frame
 
   attr_reader :strike_or_spare
+  attr_reader :first_roll
 
   def score
     @first_roll.to_i + @second_roll.to_i

@@ -36,4 +36,11 @@ describe Player do
     @test_player.new_roll(6)
     @test_player.score.should == 28
   end
+  it 'returns score of 21 after a spare (4 + 6) followed by a rolls of 5 and 1' do
+    @test_player.new_roll(4)
+    @test_player.new_roll(6)
+    @test_player.new_roll(5)
+    @test_player.new_roll(1)
+    @test_player.score.should == 21
+  end
 end
